@@ -1,0 +1,48 @@
+<div class="flex flex-col items-center bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
+  <p class="mb-4 text-gray-600 dark:text-gray-400 text-center">
+    Use camera or gallery to upload your shoe photo
+  </p>
+
+  <div class="flex space-x-4 mb-4">
+    <label
+      class="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer hover:bg-blue-700"
+    >
+      <input
+        type="file"
+        accept="image/*"
+        capture="environment"
+        (change)="onFileChange($event)"
+        class="hidden"
+      />
+      Back Camera
+    </label>
+
+    <label
+      class="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer hover:bg-blue-700"
+    >
+      <input
+        type="file"
+        accept="image/*"
+        capture="user"
+        (change)="onFileChange($event)"
+        class="hidden"
+      />
+      Front Camera
+    </label>
+  </div>
+
+  <button
+    type="button"
+    (click)="galleryInput.click()"
+    class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+  >
+    Browse Gallery
+  </button>
+  <input
+    #galleryInput
+    type="file"
+    accept="image/*"
+    (change)="onFileChange($event)"
+    class="hidden"
+  />
+</div>

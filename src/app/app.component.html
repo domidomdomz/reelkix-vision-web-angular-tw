@@ -1,0 +1,26 @@
+<div class="relative flex h-screen bg-gray-100 dark:bg-gray-900">
+
+  <!-- Backdrop (closes sidebar on click) -->
+  <div
+    [class.hidden]="!(layout.isSidebarOpen$ | async)"
+    class="fixed inset-0 bg-black/50 z-30 md:hidden"
+    (click)="layout.closeSidebar()"
+  ></div>    
+
+  <!-- Sidebar -->
+  <app-sidebar
+    class="fixed inset-y-0 left-0 z-40 transform transition-transform duration-300 md:relative md:translate-x-0 md:flex"
+    [class.-translate-x-full]="!(layout.isSidebarOpen$ | async)"
+  ></app-sidebar>
+
+  <!-- Main content area -->
+  <div class="flex flex-col flex-1 overflow-hidden">
+    <app-topbar
+      class="z-50"
+    ></app-topbar>
+
+    <main class="p-4 flex-1 overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

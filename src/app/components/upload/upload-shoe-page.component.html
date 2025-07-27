@@ -1,0 +1,32 @@
+<div class="max-w-md mx-auto p-4">
+  <!-- Mobile only -->
+  <div class="md:hidden">
+    <app-mobile-uploader
+      (fileSelected)="onFileSelected($event)"
+    ></app-mobile-uploader>
+  </div>
+
+  <!-- Desktop only -->
+  <div class="hidden md:block bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+    <h2 class="text-lg font-semibold dark:text-gray-200 mb-4">
+      Upload Shoe Photo
+    </h2>
+    <app-desktop-uploader
+      (fileSelected)="onFileSelected($event)"
+    ></app-desktop-uploader>
+  </div>
+
+  <!-- Preview / Selected File -->
+  @if (file) {
+    <div class="mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+      <p class="text-gray-800 dark:text-gray-200">
+        Selected file: {{ file.name }}
+      </p>
+      <img
+        [src]="URL.createObjectURL(file)"
+        alt="Preview"
+        class="mt-2 max-h-48 object-contain"
+      />
+    </div>
+  }
+</div>

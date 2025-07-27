@@ -1,0 +1,20 @@
+<div class="flex items-center justify-between bg-white dark:bg-gray-800 p-4 shadow md:hidden">
+  <!-- hamburger / X -->
+  <button (click)="layout.toggleSidebar()" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200">
+    <ng-icon
+      [name]="(layout.isSidebarOpen$ | async) ? 'heroXMarkSolid' : 'heroBars3Solid'"
+      class="!w-6 !h-6"
+    ></ng-icon>
+  </button>
+
+  <!-- logo + label -->
+  <div class="flex items-center gap-2">
+    <img src="logo.png" alt="reelkix logo" class="h-12" />
+    <span class="text-md font-semibold dark:text-gray-200">reelkix vision</span>
+  </div>
+
+  <!-- theme toggle -->
+  <button (click)="toggleTheme()" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200">
+    <ng-icon [name]="isDark ? 'heroSunSolid' : 'heroMoonSolid'" class="!w-6 !h-6"></ng-icon>
+  </button>
+</div>
